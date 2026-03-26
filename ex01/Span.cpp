@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:30:56 by htrindad          #+#    #+#             */
-/*   Updated: 2026/03/24 18:12:25 by htrindad         ###   ########.fr       */
+/*   Updated: 2026/03/26 19:43:37 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ void Span::addNumber(const int &n)
 
 void Span::addNumber(const std::vector<int>::iterator &begin, const std::vector<int>::iterator &end)
 {
-	if (V.size() + std::distance(begin, end))
+	if (V.size() + (std::size_t)std::distance(begin, end) > N)
 		throw std::out_of_range("Span vector has less than 2 values");
 	V.insert(V.begin(), begin, end);
 }
 
 int Span::longestSpan() const
 {
-	std::vector<int>::iterator max;
-	std::vector<int>::iterator min;
+	std::vector<int>::const_iterator max;
+	std::vector<int>::const_iterator min;
 
 	if (V.empty() || V.size() == 1)
 		throw std::out_of_range("size too low.");
@@ -63,13 +63,14 @@ int Span::shortestSpan() const
 
 	if (V.empty() || V.size() == 1)
 		throw std::out_of_range("Span vector has less than 2 values");
+	tmp = V;
 	std::sort(tmp.begin(), tmp.end());
-	min = MIN_INT;
+	min = INT_MAX;
 	for (std::size_t i = 0; i < V.size() - 1; i++)
 	{
 		cur = tmp[i + 1] - tmp[i];
 		if (cur < min)
-			min = tmp;
+			min = cur;
 	}
 	return min;
 }

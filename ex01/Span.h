@@ -6,15 +6,16 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/24 15:10:36 by htrindad          #+#    #+#             */
-/*   Updated: 2026/03/24 16:18:11 by htrindad         ###   ########.fr       */
+/*   Updated: 2026/03/24 18:25:31 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <vector>
-#include <cstdint>
+#include <cstdlib>
 #include <algorithm>
 #include <limits.h>
+#include <stdexcept>
 
 #ifndef BONUS
 # define BONUS 0
@@ -30,7 +31,7 @@ class Span
 		~Span();
 		Span(const Span &ref);
 		Span &operator=(const Span &ref);
-		Span(const std::size_t &len)
+		Span(const std::size_t &len);
 		void addNumber(const int &n);
 		int shortestSpan() const;
 		int longestSpan() const;
