@@ -1,4 +1,4 @@
-#include "MutantStock.h"
+#include "MutantStack.h"
 #include <iostream>
 
 int main()
@@ -18,7 +18,7 @@ int main()
 	++it;
 	--it;
 	while (it != ite)
-		std::cout << (*it)++ << '\n';
+		std::cout << *it++ << '\n';
 	std::stack<int> s(mstack);
 	return 0;
 }

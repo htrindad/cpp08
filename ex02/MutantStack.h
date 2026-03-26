@@ -6,7 +6,7 @@
 /*   By: htrindad <htrindad@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/26 20:04:37 by htrindad          #+#    #+#             */
-/*   Updated: 2026/03/26 20:33:20 by htrindad         ###   ########.fr       */
+/*   Updated: 2026/03/26 20:44:08 by htrindad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ class MutantStack : public std::stack<T>
 		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 		iterator begin() { return std::stack<T>::c.begin(); }
 		iterator end() { return std::stack<T>::c.end(); }
-		const_iterator begin() { return std::stack<T>::c.begin(); }
-		const_iterator end() { return std::stack<T>::c.end(); }
+		const_iterator begin() const { return std::stack<T>::c.begin(); }
+		const_iterator end() const { return std::stack<T>::c.end(); }
 		reverse_iterator rbegin() { return std::stack<T>::c.rbegin(); }
 		reverse_iterator rend() { return std::stack<T>::c.rend(); }
-		const_reverse_iterator rbegin() { return std::stack<T>::c.rbegin(); }
-		const_reverse_iterator rend() { return std::stack<T>::c.rend(); }
+		const_reverse_iterator rbegin() const { return std::stack<T>::c.rbegin(); }
+		const_reverse_iterator rend() const { return std::stack<T>::c.rend(); }
 };
